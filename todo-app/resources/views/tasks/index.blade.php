@@ -16,9 +16,24 @@
     </form>
 
     <h2>タスク一覧</h2>
+    <h3>未完了</h3>
     <ul>
         @foreach($tasks as $task)
-            <li>{{ $task->name }}</li>
+            @if($task->completed==1)
+                @continue                     
+                @else                         
+                <li>{{$task->name}}</li>                     
+            @endif 
+        @endforeach
+    </ul>
+    <h3>完了済み</h3>
+    <ul>
+        @foreach($tasks as $task)
+            @if($task->completed==0)                     
+                @continue                     
+                @else                         
+                <li>{{$task->name}}</li>                     
+            @endif 
         @endforeach
     </ul>
 </body>
