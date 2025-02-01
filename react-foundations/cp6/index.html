@@ -25,7 +25,6 @@
         }
         
         function Header2({ title }) {
-            console.log(title); // "React"
             return (
                 <>
                     <h1>{`Cool ${createTitle(title)}`}</h1>
@@ -44,10 +43,17 @@
         }
 
         function HomePage() {
+            const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+            
             return (
                 <div>
                     {/* Nesting the Header component */}
-                    <Header2 title="React" />
+                    <Header2 title="Develop. Preview. Ship." />
+                    <ul>
+                        {names.map((name) => (
+                            <li>{name}</li>
+                        ))}
+                    </ul>
                     <Profile />
                 </div>
             );
