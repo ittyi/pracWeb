@@ -29,11 +29,21 @@
             return (<h1>Develop. Preview. Ship.</h1>)
         }
 
+        function Profile() {
+            return (
+                <img
+                    src="https://i.imgur.com/MK3eW3Am.jpg"
+                    alt="Katherine Johnson"
+                />
+            )
+        }
+
         function HomePage() {
             return (
                 <div>
                     {/* Nesting the Header component */}
                     <Header2 />
+                    <Profile />
                 </div>
             );
         }
