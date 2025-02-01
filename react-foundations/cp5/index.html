@@ -28,9 +28,18 @@
         function Header2() {
             return (<h1>Develop. Preview. Ship.</h1>)
         }
+
+        function HomePage() {
+            return (
+                <div>
+                    {/* Nesting the Header component */}
+                    <Header2 />
+                </div>
+            );
+        }
         
         const root2 = ReactDOM.createRoot(app3);
-        root2.render(<Header2 />);
+        root2.render(<HomePage />);
     </script>
 </body>
 
