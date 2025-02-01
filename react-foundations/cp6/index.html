@@ -18,7 +18,12 @@
         
         function Header2({ title }) {
             console.log(title); // "React"
-            return (<h1>Develop. Preview. Ship.</h1>)
+            return (
+                <>
+                    <h1>{title}</h1>
+                    <h2>Develop. Preview. Ship.</h2>
+                </>
+            )
         }
 
         function Profile() {
