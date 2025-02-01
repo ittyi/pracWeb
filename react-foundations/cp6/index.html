@@ -16,8 +16,8 @@
 
         const app3 = document.getElementById("app3");
         
-        function Header2(props) {
-            console.log(props); // { title: "React" }
+        function Header2({ title }) {
+            console.log(title); // "React"
             return (<h1>Develop. Preview. Ship.</h1>)
         }
 
