@@ -4,17 +4,21 @@
 <body>
     <div id="app"></div>
     <div id="app2"></div>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script type="text/javascript">
-        <!-- const app = document.getElementById('app');
+        const app = document.getElementById('app');
         const header = document.createElement('h1');
         const text = 'Develop. Preview. Ship.';
         const headerContent = document.createTextNode(text);
         header.appendChild(headerContent);
-        app.appendChild(header); -->
+        app.appendChild(header);
+    </script>
 
-        const app2 = document.getElementById('app');
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel Script -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+        const app2 = document.getElementById('app2');
         const root = ReactDOM.createRoot(app2);
         root.render(<h2>Develop. Preview. Ship.</h2>);
     </script>
