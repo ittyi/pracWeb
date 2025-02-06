@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="app2"></div>
+    <div id="app3"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel Script -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+        const app2 = document.getElementById('app2');
+        const root = ReactDOM.createRoot(app2);
+        root.render(<h2>Develop. Preview. Ship.</h2>);
+
+        const app3 = document.getElementById("app3");
+
+        function createTitle(title) {
+            if (title) {
+                return title;
+            } else {
+                return 'Default title';
+            }
+        }
+        
+        function Header2({ title }) {
+            return (
+                <>
+                    <h1>{`Cool ${createTitle(title)}`}</h1>
+                    <h2>Develop. Preview. Ship. else {createTitle('')}</h2>
+                </>
+            )
+        }
+
+        function Profile() {
+            return (
+                <img
+                    src="https://i.imgur.com/MK3eW3Am.jpg"
+                    alt="Katherine Johnson"
+                />
+            )
+        }
+
+        function HomePage() {
+            const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+            const [likes, setLikes] = React.useState(0);
+
+            function handleClick() {
+                console.log("increment like count")
+                setLikes(likes + 1);
+            }
+
+            return (
+                <div>
+                    {/* Nesting the Header component */}
+                    <Header2 title="Develop. Preview. Ship." />
+                    <ul>
+                        {names.map((name) => (
+                            <li key={name}>{name}</li>
+                        ))}
+                    </ul>
+                    <Profile />
+                    <button onClick={handleClick}>Like({likes})</button>
+                </div>
+            );
+        }
+        
+        const root2 = ReactDOM.createRoot(app3);
+        root2.render(<HomePage />);
+    </script>
+</body>
+
+</html>

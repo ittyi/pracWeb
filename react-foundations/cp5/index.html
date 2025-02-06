@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <div id="app"></div>
+    <div id="app2"></div>
+    <div id="app3"></div>
+    <script type="text/javascript">
+        const app = document.getElementById('app');
+        const header = document.createElement('h1');
+        const text = 'Develop. Preview. Ship.';
+        const headerContent = document.createTextNode(text);
+        header.appendChild(headerContent);
+        app.appendChild(header);
+    </script>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel Script -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+        const app2 = document.getElementById('app2');
+        const root = ReactDOM.createRoot(app2);
+        root.render(<h2>Develop. Preview. Ship.</h2>);
+
+        const app3 = document.getElementById("app3");
+        
+        function Header2() {
+            return (<h1>Develop. Preview. Ship.</h1>)
+        }
+
+        function Profile() {
+            return (
+                <img
+                    src="https://i.imgur.com/MK3eW3Am.jpg"
+                    alt="Katherine Johnson"
+                />
+            )
+        }
+
+        function HomePage() {
+            return (
+                <div>
+                    {/* Nesting the Header component */}
+                    <Header2 />
+                    <Profile />
+                </div>
+            );
+        }
+        
+        const root2 = ReactDOM.createRoot(app3);
+        root2.render(<HomePage />);
+    </script>
+</body>
+
+</html>
