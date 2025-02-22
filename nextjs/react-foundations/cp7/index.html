@@ -42,6 +42,37 @@
             )
         }
 
+        function getFollower() {
+            // X から私のフォロワー数を取得する
+            const username = 'your_username'; // Replace with your Twitter username
+            const bearerToken = 'your_bearer_token'; // Replace with your Twitter API Bearer Token
+
+            return fetch(`https://api.twitter.com/2/users/by/username/${username}`, {
+                headers: {
+                    'Authorization': `Bearer ${bearerToken}`
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const userId = data.data.id;
+                return fetch(`https://api.twitter.com/2/users/${userId}/followers`, {
+                    headers: {
+                        'Authorization': `Bearer ${bearerToken}`
+                    }
+                });
+            })
+            .then(response => response.json())
+            .then(data => data.meta.result_count)
+            .catch(error => {
+                console.error('Error fetching follower count:', error);
+                return 0;
+            });
+        }
+
+        getFollower().then(followerCount => {
+            console.log("getFollower: ", followerCount);
+        });
+
         function HomePage() {
             const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
             const [likes, setLikes] = React.useState(0);
@@ -49,10 +80,6 @@
             function handleClick() {
                 console.log("increment like count")
                 setLikes(likes + 1);
-            }
-
-            function getFollower() {
-                return 1000;
             }
 
             console.log("getFollower: ", getFollower());
