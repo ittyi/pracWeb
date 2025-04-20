@@ -17,4 +17,9 @@ app.get("/hello", (c) => {
   });
 });
 
+app.get("/hello/:name", (c) => {
+  const name = c.req.param("name");
+  return c.render(<h2>Hello, {name}!</h2>);
+});
+
 export default app;
